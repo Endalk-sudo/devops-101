@@ -1,29 +1,29 @@
 name: My First Workflow
 on:
-    push:
-        branches: ['main']
+  push:
+    branches: ['main']
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v5
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v5
 
-            - name: Use Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: '30'
-                  cache: 'npm'
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '30'
+        cache: 'npm'
 
-            - name: Install dependencies
-              run: npm ic
+    - name: Install dependencies
+      run: npm ic
 
-            - name: Run lint
-              run: npm run lint
+    - name: Run lint
+      run: npm run lint
 
-            - name: Run test
-              run: npm test
+    - name: Run test
+      run: npm test
 
-            - name: Run sum function
-              run: node index.js
+    - name: Run sum function
+      run: node index.js
